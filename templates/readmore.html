@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% block body %}
+    <!--Breadcrumb Tow Start-->
+    <div class="breadcrumb-tow mb-120">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb-title">
+                        <h1>博客阅读</h1>
+                    </div>
+                    <div class="breadcrumb-content breadcrumb-content-tow">
+                        <ul>
+                            <li><a href="/">主页</a></li>
+                            <li class="active">阅读</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Breadcrumb Tow End-->
+    <!--Blog Area Start-->
+    <div class="blog-area white-bg pt-0 pb-0 mb-70">
+        <div class="container">
+            <div class="row">
+
+
+                <div class="col-lg-9">
+                    <div class="blog_area">
+                        <article class="blog_single blog-details">
+                            <header class="entry-header">
+
+                                <h2 class="entry-title">
+                                    {{ data.data.title }}
+                                </h2>
+                                <span class="post-author">
+                                    <span class="post-by"> 作者 : </span> {{ data.data.author }} </span>
+                                <span class="post-separator">|</span>
+                                <span class="blog-post-date"><i
+                                        class="fas fa-calendar-alt"></i>{{ data.data.createtime | format_time}} </span>
+                            </header>
+                            <div class="post-thumbnail img-full">
+                                <img src={% if article.title_picture %}
+                                            {{ article.title_picture }}
+                                        {% else %}
+                                            "/static/img/blog1.jpg"
+                                        {% endif %} alt="">
+                            </div>
+                            <div class="postinfo-wrapper">
+                                <div class="post-info">
+                                    <div class="entry-summary blog-post-description">
+                                        {{ data.data.text | safe }}
+                                        <!--Blog Post Tag-->
+                                        <div class="single-post-tag">
+                                            标签:
+                                            <a href="/select/tag/{{ data.data.tag }}"><span
+                                                    class="fa fa-tags"></span>&nbsp;{{ data.data.tag }} </a>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+
+                </div>
+
+
+                <!--Blog Sidebar Start-->
+                <div class="col-lg-3">
+                    <div class="blog_sidebar">
+                        <div class="row_products_side">
+                            <div class="product_left_sidbar">
+                                <div class="product-filter  mb-35">
+                                    <h5>Search </h5>
+                                    <div class="search__sidbar">
+                                        <form action="/index/" method="post">
+                                            <div class="input_form">
+                                                <input id="search_input" name="wd" value="Search..." class="input_text"
+                                                       type="text">
+                                                <button id="blogsearchsubmit" onclick="blogsearchsubmit()" type="submit"
+                                                        class="button">
+                                                    <i class="fa fa-search"></i>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+
+                                <div class="product-filter mb-35">
+                                    <h5>tags</h5>
+                                    <div class="product-tag blog-tag">
+                                        <ul>
+
+                                            {% for item in data.tag_ret %}
+                                                <li><a href="/index/tg={{ item.tag }}"><span
+                                                        class="fa fa-tags"></span>{{ item.tag }}</a></li>
+                                            {% endfor %}
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Blog Sidebar End-->
+            </div>
+        </div>
+    </div>
+    <!--Blog Area End-->
+
+{% endblock %}

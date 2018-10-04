@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div class="wrapper">
+
+        <!--Breadcrumb Tow Start-->
+        <div class="breadcrumb-tow mb-120">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumb-title">
+                            <h1>登录</h1>
+                        </div>
+                        <div class="breadcrumb-content breadcrumb-content-tow">
+                            <ul>
+                                <li><a href="/index">主页</a></li>
+                                <li class="active">登录</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Breadcrumb Tow End-->
+        <!--Login Register Area Strat-->
+        <div class="login-register-area mb-80">
+            <div class="container">
+                <div class="row">
+                    <!--Login Form Start-->
+                    <div class="col-md-6 col-sm-6">
+                        <div class="customer-login-register">
+                            <div class="form-login-title">
+                                <h2>登录</h2>
+                            </div>
+                            <div class="register-form">
+                                <form action="#" method="post">
+                                    <div class="form-fild">
+                                        <p><label>用户名或邮箱 <span class="required">*</span></label></p>
+                                        <input name="username" value="" type="text">
+                                    </div>
+                                    <div class="form-fild">
+                                        <p><label>密码 <span class="required">*</span></label></p>
+                                        <input name="password" value="" type="password">
+                                    </div>
+                                    <div class="login-submit">
+                                        <button type="submit" class="form-button">登录</button>
+                                        <label>
+                                            <input class="checkbox" name="rememberme" value="" type="checkbox">
+                                            <span>自动登录</span>
+                                        </label>
+                                    </div>
+                                    <div class="lost-password">
+                                        <span style="color: firebrick">{{ msg }}</span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Login Form End-->
+                    <!--Register Form Start-->
+                    <div class="col-md-6 col-sm-6">
+                        <div class="customer-login-register register-pt-0">
+                            <div class="form-register-title">
+                                <h2>注册</h2>
+                            </div>
+                            <div class="register-form">
+                                <form action="#">
+                                    <div class="form-fild">
+                                        <p><label>用户名或邮箱<span class="required">*</span></label></p>
+                                        <input name="username" value="" type="text">
+                                    </div>
+                                    <div class="form-fild">
+                                        <p><label>密码 <span class="required">*</span></label></p>
+                                        <input name="password" value="" type="password">
+                                    </div>
+                                    <div class="register-submit"  title="暂时无法使用">
+                                        <button type="submit" class="form-button" disabled="disabled">注册</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Register Form End-->
+                </div>
+            </div>
+        </div>
+        <!--Login Register Area End-->
+
+    </div>
+{% endblock %}

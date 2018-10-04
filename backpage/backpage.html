@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+
+{% block css %}
+
+    <style>
+        .row #edit:hover{
+            color: #9fcdff;
+        }
+        .row #delete:hover{
+            color: #721c24;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="shop-area mb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 order-2 order-lg-1">
+                    <!--Product Category Widget Start-->
+                {% if data.tag_ret %}
+                    <div class="shop-sidebar">
+                        <h4>标签</h4>
+                        <div class="categori-checkbox">
+                            <form action="#">
+                                <ul>
+
+                                    
+                                    {% for foo in data.tag_ret %}
+                                        <li><a href="/select/tag/{{ foo.tag }}">{{ foo.tag }}</a><span
+                                            class="count">({{ foo.count }})</span></li>
+                                    {% endfor %}
+                                    
+                                </ul>
+                            </form>
+                        </div>
+                    </div>
+                {% endif %}
+                    {% if data.tag_ret %}
+                        <div class="shop-sidebar">
+                            <h4>时间</h4>
+                            <div class="categori-checkbox">
+                                <form action="#">
+                                    <ul>
+                                        {% for foo in data.tag_ret %}
+                                            <li><a href="/select/tag/{{ foo.time}}">{{ foo.time }}</a><span
+                                                class="count">({{ foo.count }})</span></li>
+                                        {% endfor %}
+
+                                    </ul>
+                                </form>
+                            </div>
+                        </div>
+                        <!--Product Category Widget End-->
+                    {% endif %}
+
+                </div>
+                <div class="col-lg-9 order-1 order-lg-2">
+                    <div class="shop-layout">
+                        <!--Breadcrumb One Start-->
+                        <div class="breadcrumb-one mb-120">
+                            <div class="breadcrumb-img">
+                                <img src="/static/img/coffee-pixels.png" alt="" style="height: 300px; width: 100%">
+                            </div>
+                            <div class="breadcrumb-content">
+                                <ul>
+                                    <li><a href="/add_blog">添加博客</a></li>
+                                    <li class="active">博客</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--Breadcrumb One End-->
+
+                        <!--Shop Product Start-->
+                        <div class="shop-product">
+                            <div id="myTabContent-2" class="tab-content">
+                                <div id="grid" class="tab-pane fade show active">
+                                    <div class="product-grid-view">
+                                        <div class="row">
+                                            <div class="product-list-item mb-40">
+                                                <div class="row">
+
+                                                    {% for item in data.article_ret %}
+                                                        <!--Single List Product Start-->
+                                                        <div class="col-md-4">
+                                                            <div class="single-product">
+                                                                <div class="product-img img-full">
+                                                                    <a href="/edit/{{ item._id }}">
+                                                                        <img src="/static/img/v2-24a0b30d770b4d2aff606ae38cc6f5a8_r.jpg"
+                                                                             style="width: 260px;height: 220px;"
+                                                                             alt="">
+                                                                    </a>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <div class="product-content shop-list">
+
+                                                                <h2>
+                                                                    <a href="/edit/{{ item._id }}">{{ item.title }}</a>
+                                                                </h2>
+                                                                <div class="product-description">
+                                                                    <p>{{ item.summary }}</p>
+                                                                </div>
+
+                                                                <div class="product-list-action">
+                                                                    <div class="row">
+                                                                        <div class="add-btn" id="edit">
+                                                                            <a href="/edit/{{ item._id }}">阅读全文</a>
+                                                                        </div>
+                                                                        <div class="add-btn" id="delete">
+                                                                            <a href="/del/{{ item._id }}">删除文章</a>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--Pagination Start-->
+{#                                    <div class="product-pagination">#}
+{#                                        <ul>#}
+{#                                            <li class="active"><a href="#">1</a></li>#}
+{#                                            <li><a href="#">2</a></li>#}
+{#                                            <li><a href="#">3</a></li>#}
+{#                                            <li><a href="#">4</a></li>#}
+{#                                            <li><a href="#">5</a></li>#}
+{#                                            <li><a href="#"><i class="fa fa-angle-double-right"></i></a>#}
+{#                                            </li>#}
+{#                                        </ul>#}
+{#                                    </div>#}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+{% endblock %}

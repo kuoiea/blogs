@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block body %}
+
+    <div class="error-404-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="error-wrapper text-center">
+                        <div class="error-text">
+                            <h1>404</h1>
+                            <h2>哎呀,页面未找到</h2>
+                            <p>抱歉，您要查找的页面不存在，已删除，名称已更改或暂时不可用。</p>
+                        </div>
+                        <div class="search-error">
+                            <form action="https://www.baidu.com/s?wd=">
+                                <input placeholder="Baidu Search" type="text">
+                                <button><i class="fa fa-search"></i></button>
+                            </form>
+                        </div>
+                        <div class="error-button">
+                            <a href="/index/">返回首页</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

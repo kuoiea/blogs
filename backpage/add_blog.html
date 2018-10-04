@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+    <div class="contact-area gray-bg pt-110 pb-105">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="contact-form-area">
+                        <div class="contact-form-title">
+                            <h2>{% if ret %}
+                                编辑文章
+                            {% else %}
+                                添加文章
+                            {% endif %}</h2>
+                        </div>
+                        <form id="contact-form" action="" method="post">
+
+                            <div class="row">
+
+                                <div class="col-md-12">
+                                    <div class="contact-form-style mb-20">
+                                        <input id="title" name="title" placeholder="{% if ret %}
+                                        {{ ret.title }}{% else %}文章标题
+                                        {% endif %}" type="text">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="contact-form-style mb-20">
+                                        <input id="tag" name="tag" placeholder="{% if ret %}
+                                        {{ ret.tag }}{% else %}文章标签
+                                        {% endif %}" type="text">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12" style="margin: 0; padding: 0">
+                                <textarea id="textarry" rows="6"
+                                          placeholder="输入正文">{{ ret.text | safe }}</textarea>
+                                {#                                <button onclick="uploadfile()" class="form-button btn-style-2" type="submit"><span>添加文章</span></button>#}
+
+                                <submit onclick="uploadfile()" class="form-button btn-style-2">添加文章</submit>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/HandyEditor.min.js"></script>
+    <script type="text/javascript">
+        var he = HE.getEditor('textarry', {
+            width: '1170px',
+            height: '400px',
+            autoHeight: true,
+            autoFloat: false,
+            topOffset: 0,
+            uploadPhoto: true,
+            uploadPhotoHandler: '/uploadPhoto/',
+            uploadPhotoSize: 0,
+            uploadPhotoType: 'gif,png,jpg,jpeg',
+            {#            uploadPhotoSizeError: '不能上传大于××KB的图片',#}
+            uploadPhotoTypeError: '只能上传gif,png,jpg,jpeg格式的图片',
+            lang: 'zh-jian',
+            skin: 'HandyEditor',
+            externalSkin: '',
+            item: ['bold', 'italic', 'strike', 'underline', 'fontSize', 'fontName', 'paragraph', 'color', 'backColor', '|', 'center', 'left', 'right', 'full', 'indent', 'outdent', '|', 'link', 'unlink', 'textBlock', 'code', 'selectAll', 'removeFormat', 'trash', '|', 'image', 'expression', 'subscript', 'superscript', 'horizontal', 'orderedList', 'unorderedList', '|', 'undo', 'redo', '|', 'html', '|', 'about']
+
+        });
+        var title = null;
+        var tag = null;
+
+        function uploadfile() {
+            $.ajax({
+                url: {% if not ret %}'/add_blog'{% else %}'/edit/{{ ret._id }}'{% endif %},
+                type: 'POST',
+                data: {
+                    title: document.getElementById('title').value,
+                    tag: document.getElementById('tag').value,
+                    source_code: he.getHtml(),
+                    plain_text: he.getText()
+                },
+                success: function (data) {
+                    console.log("提交成功");
+                    window.location.href = '/backpage'
+
+                },
+                error: function (data) {
+                    alert('提交失败');
+                    console.log(data)
+
+                }
+            })
+        }
+
+
+    </script>
+
+{% endblock %}

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Blog || kuoiea</title>
+    <meta name="description" content="">
+    <meta name="robots" content="noindex, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, follow">
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" type="image/x-icon" href="/static/img/logo/favicon.ico">
+    <!--All Css Here-->
+
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <!-- Linearicon CSS-->
+    <link rel="stylesheet" href="/static/css/linearicons.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+
+    <!-- Animate CSS-->
+    <link rel="stylesheet" href="/static/css/animate.css">
+    <!-- Owl Carousel CSS-->
+    <link rel="stylesheet" href="/static/css/owl.carousel.min.css">
+    <!-- Slick CSS-->
+    <link rel="stylesheet" href="/static/css/slick.css">
+    <!-- Meanmenu CSS-->
+    <link rel="stylesheet" href="/static/css/meanmenu.min.css">
+    <!-- Easyzoom CSS-->
+    <link rel="stylesheet" href="/static/css/easyzoom.css">
+    <!-- Venobox CSS-->
+    <link rel="stylesheet" href="/static/css/venobox.css">
+    <!-- Jquery Ui CSS-->
+    <link rel="stylesheet" href="/static/css/jquery-ui.css">
+    <!-- Nice Select CSS-->
+    <link rel="stylesheet" href="/static/css/nice-select.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="/static/css/responsive.css">
+    <!-- Modernizr Js -->
+    <script src="/static/js/modernizr-2.8.3.min.js"></script>
+
+    {% block css %}
+    {% endblock %}
+</head>
+<body>
+
+
+<!--[if lt IE 8]>
+	<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
+
+<div class="wrapper">
+    <!--Header Area Start-->
+    <header>
+        <div class="header-container">
+            <div class="header-area header-sticky pt-30 pb-30 is-sticky">
+                <div class="container">
+                    <div class="row">
+                        <!-- 头部 LOGO 开始 -->
+                        <div class="col-lg-3 col-md-3">
+                            <div class="logo-area">
+                                <a href="/index/">
+                                    <img src="/static/img/logo/logo.png" alt="" style="width: 70px;height: 40px">
+                                </a>
+                            </div>
+                        </div>
+                        <!-- 头部 LOGO 结束 -->
+                        <!--Header Menu And Mini Cart Start-->
+                        <div class="col-lg-9 col-md-9 text-lg-right">
+                            <!--Main Menu Area Start-->
+                            <div class="header-menu">
+                                <nav style="display: block;">
+                                    <ul class="main-menu">
+                                        {% if not session.username %}
+                                            <li><a href="/index/">主页面</a></li>
+                                            <li><a href="/link">友情链接</a></li>
+                                            <li><a href="/login">登录</a></li>
+
+                                        {% else %}
+                                            <li><a href="/index/">主页面</a></li>
+                                            <li><a href="/backpage">后台管理</a></li>
+                                            <li><a href="/index/">用户信息</a></li>
+                                            <li><a href="/index/">{{ session.username }}</a></li>
+                                            <li><a href="/logout">注销</a></li>
+                                        {% endif %}
+
+
+                                    </ul>
+                                </nav>
+                            </div>
+
+                            <!--Header Menu And Mini Cart End-->
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <!--Mobile Menu Area Start-->
+                                <div class="mobile-menu d-lg-none"></div>
+                                <!--Mobile Menu Area End-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</div>
+
+<!--Header Area End-->
+{% block body %}
+
+{% endblock %}
+
+<footer>
+    <div class="footer-container">
+        <!--Footer Middle Area Start-->
+        <div class="footer-middle-area black-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <!--Single Footer Widget Start-->
+                        <div class="single-footer-widget mb-30">
+                            <div class="footer-logo">
+                                <a href="index.html"><img src="/static/img/logo/logo.png" alt=""
+                                                          style="height:59px ;  width: 100px;"></a>
+                            </div>
+                        </div>
+                        <!--Single Footer Widget End-->
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <!--Single Footer Widget Start-->
+                        <div class="single-footer-widget mb-30">
+                            <div class="footer-info">
+                                <div class="icon">
+                                    <i class="fa fa-home"></i>
+                                </div>
+                                <p>Address :<br> Beijing China</p>
+                            </div>
+                        </div>
+                        <!--Single Footer Widget End-->
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <!--Single Footer Widget Start-->
+                        <div class="single-footer-widget mb-30">
+                            <div class="footer-info">
+                                <div class="icon">
+                                    <i class="fa fa-envelope-open-o"></i>
+                                </div>
+                                <p>Email: <br>senyuhaigang@gmail.com</p>
+                            </div>
+                        </div>
+                        <!--Single Footer Widget End-->
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <!--Single Footer Widget Start-->
+                        <div class="single-footer-widget mb-30">
+                            <div class="footer-info">
+                                <div class="icon">
+                                    <i class="fa fa-mobile"></i>
+                                </div>
+                                <p>Phone: <br>(+86) ***********</p>
+                            </div>
+                        </div>
+                        <!--Single Footer Widget End-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Footer Middle Area End-->
+        <!--Footer Bottom Area Start-->
+        <div class="footer-bottom-area black-bg pt-50 pb-50">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+{#                        <!--Footer Menu Start-->#}
+{#                        <div class="footer-menu text-center">#}
+{#                            <nav>#}
+{#                                <ul>#}
+{#                                    <li><a href="#">Site Map</a></li>#}
+{#                                    <li><a href="#">Search Terms</a></li>#}
+{#                                    <li><a href="#">Advanced Search</a></li>#}
+{#                                    <li><a href="#">Orders and Returns</a></li>#}
+{#                                    <li><a href="#">Contact Us</a></li>#}
+{#                                </ul>#}
+{#                            </nav>#}
+{#                        </div>#}
+{#                        <!--Footer Menu End-->#}
+                        <!--Footer Copyright Start-->
+                        <div class="footer-copyright">
+                            <p>Copyright © <a href="mailto:senyuhaigang@gmail.com">kuoiea</a> All Rights Reserved</p>
+                        </div>
+                        <!--Footer Copyright End-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Footer Bottom Area End-->
+    </div>
+</footer>
+
+
+<!--All Js Here-->
+
+<!--Jquery 1.12.4-->
+<script src="/static/js/jquery-1.12.4.min.js"></script>
+<!--Popper-->
+<script src="/static/js/popper.min.js"></script>
+<!--Bootstrap-->
+<script src="/static/js/bootstrap.min.js"></script>
+<!--Imagesloaded-->
+<script src="/static/js/imagesloaded.pkgd.min.js"></script>
+<!--Isotope-->
+<script src="/static/js/isotope.pkgd.min.js"></script>
+<!--Waypoints-->
+<script src="/static/js/waypoints.min.js"></script>
+<!--Counterup-->
+<script src="/static/js/jquery.counterup.min.js"></script>
+<!--Carousel-->
+<script src="/static/js/owl.carousel.min.js"></script>
+<!--Slick-->
+<script src="/static/js/slick.min.js"></script>
+<!--Meanmenu-->
+<script src="/static/js/jquery.meanmenu.min.js"></script>
+<!--Easyzoom-->
+<script src="/static/js/easyzoom.min.js"></script>
+<!--Nice Select-->
+<script src="/static/js/jquery.nice-select.min.js"></script>
+<!--ScrollUp-->
+<script src="/static/js/jquery.scrollUp.min.js"></script>
+<!--Wow-->
+<script src="/static/js/wow.min.js"></script>
+<!--Venobox-->
+<script src="/static/js/venobox.min.js"></script>
+<!--Jquery Ui-->
+<script src="/static/js/jquery-ui.js"></script>
+<!--Countdown-->
+<script src="/static/js/jquery.countdown.min.js"></script>
+<!--Plugins-->
+<script src="/static/js/plugins.js"></script>
+<!--Main Js-->
+<script src="/static/js/main.js"></script>
+{% block js %}
+
+{% endblock %}
+
+
+<a id="scrollUp" href="#top" style="position: fixed; z-index: 2147483647; display: none;"><i class="fa fa-sort-up"></i></a>
+
+
+</body>
+</html>
