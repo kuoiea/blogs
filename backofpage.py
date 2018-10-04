@@ -84,8 +84,11 @@ def add_blog():
         path = os.path.join(os.getcwd(), 'static')
         phpot_list = file_name(path)
         title_picture = random.choice(phpot_list)
+        path,name = os.path.split(title_picture)
+
+        # 'title_picture':title_picture,
         article_ret = DATABASE.article.insert_one(
-            {'title': title, 'tag': tag, 'title_picture':title_picture, 'author': session['username'], 'summary': plain_text, 'text': post_full,
+            {'title': title, 'tag': tag,  'author': session['username'],'title_picture':name, 'summary': plain_text, 'text': post_full,
              'createtime': time.time(),
              'edittime': time.time()})
 

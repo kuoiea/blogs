@@ -39,12 +39,15 @@
                                 <span class="blog-post-date"><i
                                         class="fas fa-calendar-alt"></i>{{ data.data.createtime | format_time}} </span>
                             </header>
+
                             <div class="post-thumbnail img-full">
-                                <img src={% if article.title_picture %}
-                                            {{ article.title_picture }}
+                                <a href="/readmore/{{ data.data._id }}">
+                                        <img src={% if data.data.title_picture %}
+                                            "/static/img/{{ data.data.title_picture }}"
                                         {% else %}
                                             "/static/img/blog1.jpg"
                                         {% endif %} alt="">
+                                    </a>
                             </div>
                             <div class="postinfo-wrapper">
                                 <div class="post-info">
